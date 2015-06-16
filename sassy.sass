@@ -1,0 +1,44 @@
+// Sassy
+// Micro mixin library that I frequently use
+// --------------------------------------------------
+
+// Shortcut for easy enabling/disabling of font-smoothing
+// @param : $on : toggles font-smoothing
+@mixin font-smoothing($value: on)
+  @if $value == on
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+
+  @else
+    -webkit-font-smoothing: subpixel-antialiased
+    -moz-osx-font-smoothing: auto
+
+
+// Styling of text selection
+@mixin selection
+  ::-moz-selection
+    @content
+  ::selection
+    @content
+
+
+// Nicer paragraphs with hyphenation
+@mixin word-wrap
+  word-break: break-word
+  -webkit-hyphens: auto
+  -moz-hyphens: auto
+  hyphens: auto
+
+
+// Use pseudo element as font-awesome icon
+@mixin font-awesome($charcode, $vertical-align: middle)
+  &:before
+    display: inline-block
+    font-family: "FontAwesome"
+    font-style: normal
+    font-weight: normal
+    line-height: 1
+    content: $charcode
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+    vertical-align: $vertical-align
