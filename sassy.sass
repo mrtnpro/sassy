@@ -42,3 +42,18 @@
     -webkit-font-smoothing: antialiased
     -moz-osx-font-smoothing: grayscale
     vertical-align: $vertical-align
+
+
+// Apply ‘attention’ styles in one go.
+@mixin attention($self: false)
+  @if($self != false)
+    &,
+    &:hover,
+    &:active,
+    &:focus
+      @content
+  @else
+    &:hover,
+    &:active,
+    &:focus
+      @content
