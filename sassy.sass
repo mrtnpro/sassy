@@ -57,3 +57,16 @@
     &:active,
     &:focus
       @content
+
+
+
+// Create all specified heading styles in one go.
+@mixin headings($from: 1, $to: 6)
+
+  %base-heading
+    @content
+
+  @if $from >= 1 and $to <= 6
+    @for $i from $from through $to
+      h#{$i}
+        @extend %base-heading
